@@ -39,7 +39,8 @@ app.use(express.static("public"));
 
 // Database configuration with mongoose
 //mongoose.connect("mongodb://localhost/week18day3mongoose");
-mongoose.connect("mongodb://localhost/goophy-app");
+mongoose.connect("mongodb://heroku_9dnr272d:eqcj56l2npni9ute2k3sfcjdp8@ds037272.mlab.com:37272/heroku_9dnr272d");
+//mongoose.connect("mongodb://localhost/week18day3mongoose");
 var db = mongoose.connection;
 
 // Show any mongoose errors
