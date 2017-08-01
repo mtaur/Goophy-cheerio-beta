@@ -55,7 +55,7 @@ function googleScrape(searchStr,callback) {
 
     function getPic(index) {
         nightmare.click('.rg_ic[scrapeID="num'+index+'"]')
-            .wait(500)
+            .wait(2000)
             .evaluate(function(arr)
                 {
                     for(var i=0; i<2; i++)
