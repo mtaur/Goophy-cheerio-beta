@@ -9,7 +9,7 @@ const options = {
 var Article = require('./models/Article.js');
 
 /////
-function googleScrape(searchTerm,callback) {
+function googleScrape(searchStr,callback) {
 
 
     var Nightmare = require('nightmare');
@@ -110,7 +110,8 @@ function googleScrape(searchTerm,callback) {
     }
 
     nightmare
-        .goto('https://www.google.com/search?q=' + searchTerm + '&tbm=isch&tbs=itp:animated')
+        .goto(searchStr)
+        // .goto('https://www.google.com/search?q=' + searchTerm + '&tbm=isch&tbs=itp:animated')
         .inject('js', './public/jquery.min.js')
         .wait('.rg_ic').wait(2000)
         .evaluate(function(){
