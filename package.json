@@ -17,6 +17,7 @@
     "image-downloader": "^3.2.2",
     "jquery": "^3.2.1",
     "jsdom": "^11.1.0",
+    "mocha-nightmare": "^0.1.2",
     "mongoose": "^4.11.3",
     "morgan": "^1.8.2",
     "nightmare": "^2.10.0",

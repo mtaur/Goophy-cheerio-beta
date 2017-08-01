@@ -12,6 +12,7 @@ var Article = require('./models/Article.js');
 function googleScrape(searchStr,callback) {
 
 
+//    var Nightmare = require('nightmare');
     var Nightmare = require('nightmare');
     var nightmare = Nightmare({ show: false});
 
@@ -113,7 +114,7 @@ function googleScrape(searchStr,callback) {
         .goto(searchStr)
         // .goto('https://www.google.com/search?q=' + searchTerm + '&tbm=isch&tbs=itp:animated')
         .inject('js', './public/jquery.min.js')
-        .wait('.rg_ic').wait(2000)
+        .wait('.rg_ic').wait(500) // wait(2000)
         .evaluate(function(){
             for(var i=0; i<50; i++)
                     {$('.rg_ic').eq(i).attr('scrapeID','num'+i);}
