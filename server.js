@@ -15,6 +15,25 @@ var request = require("request");
 var cheerio = require("cheerio");
 
 
+
+var googleSearch = require('./nightmare.js');
+
+
+
+/*const imageDL = require("image-downloader");
+const options = {
+    url: 'http://i.imgur.com/FnC28.gif',
+    dest: './public/images/wharrgarbl.gif'                  // Save to /path/to/dest/image.jpg
+};
+
+imageDL.image(options)
+    .then(({ filename, image }) => {
+    console.log('File saved to', filename)
+}).catch((err) => {
+    throw err
+});*/
+
+
 /*
 //var jQuery = require('jquery');
 var jsdom = require('jsdom');*/
@@ -59,19 +78,29 @@ var images = [];
 // Routes
 // ======
 
-// A GET request to scrape the echojs website
+// A GET request to Nightmare scrape Google images
 app.get("/search/:str?", function(req, res) {
 
     var searchQuery = 'wharrgarbl';
 
-    if(req.params.str) {searchQuery = req.params.str;}
+    if (req.params.str) {
+        searchQuery = req.params.str;
+    }
 
-    var j=4;
+    var j = 4;
 
-    var url1 = 'https://www.google.com/search?q=' + searchQuery + '&tbm=isch&tbs=itp:animated';
+    var url1 = 'https://www.google.com/search?q=' + searchQuery + '&tbm=isch&tbs=itp:animated&safe=active';
 //    var url1 = 'https://www.google.com/search?q=' + searchQuery + '&site=imghp&tbm=isch&source=lnt&tbs=itp:animated&sa=X&ved=0ahUKEwjep_bhipnVAhWGMz4KHVP3A2IQpwUIHw&biw=1900&bih=1129&dpr=1.58'; //'&tbm=isch&tbs=itp:animated';
 
-    request(url1, function(error, response, html) {
+//    googleSearch('star+craft+remaster');
+    googleSearch(url1, function(){res.redirect('/');});
+
+    }
+);
+
+/*    request(url1, function(error, response, html) {
+
+
 
         var $ = cheerio.load(html);
 
@@ -112,7 +141,7 @@ app.get("/search/:str?", function(req, res) {
 
 
 
-    /*
+    /!*
     // First, we grab the body of the html with request
     request("http://www.echojs.com/", function(error, response, html) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -146,9 +175,9 @@ app.get("/search/:str?", function(req, res) {
       });
     });
     // Tell the browser that we finished scraping the text
-    res.send("Scrape Complete");*/
+    res.send("Scrape Complete");*!/
 
-/*        console.log(result);
+/!*        console.log(result);
         console.log(result);
         console.log(result);
         console.log(result);
@@ -159,7 +188,7 @@ app.get("/search/:str?", function(req, res) {
         console.log(result);
         console.log(result);
         console.log(result);
-        res.send('Minotaur?');*/
+        res.send('Minotaur?');*!/
 
 //    res.send('Minotaur?');
 
@@ -220,7 +249,7 @@ function inception(url) {
 
 
     });
-}
+}*/
 
 
 // This will get the articles we scraped from the mongoDB
