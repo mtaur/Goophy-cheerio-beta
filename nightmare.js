@@ -13,7 +13,7 @@ function googleScrape(searchStr,callback) {
 
 
     var Nightmare = require('nightmare');
-    var nightmare = Nightmare({ show: true, height: 900, width: 1600 });
+    var nightmare = Nightmare({ show: false});
 
     var jq = require('cheerio');
 //    var searchQuery ='wharrgarbl';
