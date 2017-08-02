@@ -69,7 +69,7 @@ function googleScrape(searchStr,callback) {
                     {
                         arr=result;
                         ind++;
-                        if(arr.length<20) {getPic(ind);}
+                        if(arr.length<6) {getPic(ind);}
                         else {
 
                             for(var j=0; j<arr.length; j++) {
